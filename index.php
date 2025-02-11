@@ -30,7 +30,8 @@ include 'koneksi.php';
                     <th scope="col">Day</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Agenda Location</th>
+                    <th scope="col">Agenda</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -47,6 +48,7 @@ include 'koneksi.php';
                     <td>" . htmlspecialchars($row['date']) . "</td>
                     <td>" . htmlspecialchars($row['time']) . "</td>
                     <td>" . htmlspecialchars($row['agenda']) . "</td>
+                    <td>" . htmlspecialchars($row['location']) . "</td>
                     <td>
                         <a href='edit.php?date=" . $row['date'] . "' class='btn btn-warning'><i class='bi bi-pencil-square'> Update</i></a>
                         <a href='del.php?date=" . $row['date'] . "' class='btn btn-danger' onclick='return confirm(\"Apakah Anda yakin ingin menghapus agenda ini?\")'><i class=' bi bi-trash3-fill'></i> Delete</a>

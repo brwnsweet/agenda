@@ -60,6 +60,9 @@ if (isset($_GET['date'])) {
       <label for="agenda">Agenda</label>
       <textarea id="agenda" name="agenda" class="form-control mt-2" rows="5" required><?php echo $row['agenda']; ?></textarea>
 
+      <label for="location">Location</label>
+      <input id="location" name="location" class="form-control mt-2" rows="5" value="<?php echo $row['location']; ?>" required></input>
+
       <input class="btn btn-primary mt-3" type="submit" name="update" value="Update Data">
       <a href="index.php" button class="btn btn-secondary mt-3" type="submit">Cancel</a></button>
     </form>
@@ -71,9 +74,10 @@ if (isset($_GET['date'])) {
       $date = $_POST['date'];
       $time = $_POST['time'];
       $agenda = $_POST['agenda'];
+      $location = $_POST['location'];
 
       // Query Update Data
-      $sqlUpdate = "UPDATE tb_agenda SET day='$day', date='$date', time='$time', agenda='$agenda' WHERE date='$date'";
+      $sqlUpdate = "UPDATE tb_agenda SET day='$day', date='$date', time='$time', agenda='$agenda', location='$location' WHERE date='$date'";
       $result = mysqli_query($conn, $sqlUpdate);
 
       if ($result) {

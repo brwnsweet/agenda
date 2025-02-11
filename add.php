@@ -32,6 +32,8 @@ include 'koneksi.php';
       <input type="time" id="time" name="time" class="form-control mt-2" required><br>
       <label for="agenda">Agenda</label>
       <textarea id="agenda" name="agenda" class="form-control mt-2" rows="5" required></textarea>
+      <label for="location">Location</label>
+      <input id="location" name="location" class="form-control mt-2" rows="5" required></input>
       <input class="btn btn-success mt-3" type="submit" name="add" value="Add new data">
       <a href="index.php" button class="btn btn-secondary mt-3" type="submit">Cancel</a></button>
     </form>
@@ -45,6 +47,7 @@ if (isset($_POST['add'])) {
     $date = $_POST['date'];
     $time = $_POST['time'];
     $agenda = $_POST['agenda'];
+    $location = $_POST['location'];
 
     // Cek apakah data dengan tanggal yang sama sudah ada di database
     $checkSql = "SELECT * FROM tb_agenda WHERE date = '$date'";
@@ -58,7 +61,7 @@ if (isset($_POST['add'])) {
               </script>";
     } else {
         // Jika tidak ada data dengan tanggal yang sama, tambahkan ke database
-        $sqlInsert = "INSERT INTO tb_agenda (day, date, time, agenda) VALUES ('$day', '$date', '$time', '$agenda')";
+        $sqlInsert = "INSERT INTO tb_agenda (day, date, time, agenda, location) VALUES ('$day', '$date', '$time', '$agenda', '$location')";
         $result = mysqli_query($conn, $sqlInsert);
 
         if ($result) {
